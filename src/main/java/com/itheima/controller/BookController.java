@@ -23,8 +23,12 @@ public class BookController {
 
     @PostMapping
     public R save(@RequestBody Book book) {
+<<<<<<< HEAD
      boolean flag =   iBookService.save(book);
         return new R(flag,flag? "添加成功" : "添加失败");
+=======
+        return new R(iBookService.save(book));
+>>>>>>> 2cb6bb0ececf12786b86c957f956ddc53e20b67c
     }
 
     @PutMapping
@@ -44,10 +48,14 @@ public class BookController {
 
     @GetMapping("{currentPage}/{pageSize}")
     public R getPage(@PathVariable int currentPage, @PathVariable int pageSize) {
+<<<<<<< HEAD
         IPage<Book> page = iBookService.getPage(currentPage,pageSize);
         if (currentPage > page.getPages()){
             page = iBookService.getPage((int) page.getPages(),pageSize);
         }
         return new R(true, page);
+=======
+        return new R(true, iBookService.getPage(currentPage, pageSize));
+>>>>>>> 2cb6bb0ececf12786b86c957f956ddc53e20b67c
     }
 }
